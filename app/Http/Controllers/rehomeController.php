@@ -24,22 +24,24 @@ class rehomeController extends Controller
             'size'        => 'required',
             'breed'       => 'nullable|string',
             'description' => 'nullable|string',
-            'pet_photos.*'=> 'image|mimes:jpg,jpeg,png|max:2048',
+            'pet_photos'   => 'nullable|array',
+            'pet_photos.*' => 'image|mimes:jpg,jpeg,png|max:10240',
         ]);
-  dd($request->file('pet_photos'));
+
         $pet = Pet::create([
             ...$validated,
             'status' => 'available',
         ]);
-if ($request->hasFile('pet_photos')) {
-    foreach ($request->file('pet_photos') as $image) {
-        $path = $image->store('petsImage', 'public');
 
-        $pet->images()->create([
-            'path' => $path,
-        ]);
-    }
-}
+        if ($request->hasFile('pet_photos')) {
+            foreach ($request->file('pet_photos') as $image) {
+                $path = $image->store('petsImage', 'public');
+
+                $pet->images()->create([
+                    'path' => $path,
+                ]);
+            }
+        }
 
 
         return redirect()->route('adopt.index');

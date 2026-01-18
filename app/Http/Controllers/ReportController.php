@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PetsImage;
 use App\Models\Report;
 use App\Models\reportImage;
 use Illuminate\Http\Request;

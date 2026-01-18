@@ -22,7 +22,7 @@
                         <div class="mb-4 text-center">
                             <label class="form-label fw-semibold">Pet Photos</label>
                             <div class="border rounded p-4">
-                                <input type="file" name="images[]" class="form-control" multiple>
+                                <input type="file" name="pet_photos[]" class="form-control" multiple>
                                 <small class="text-muted d-block mt-2">
                                     Upload PNG, JPG — up to 10MB
                                 </small>
