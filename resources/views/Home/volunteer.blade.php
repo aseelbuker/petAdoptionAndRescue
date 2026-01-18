@@ -100,20 +100,20 @@
                             <div class="d-flex gap-3 align-items-center">
 
                                 {{-- IMAGE --}}
-                            @if($report->petsImage->isNotEmpty())
-    <img
-        src="{{ asset('storage/'.$report->petsImage->first()->path) }}"
-        width="70"
-        height="70"
-        class="rounded"
-        style="object-fit:cover"
-    >
-@else
-    <div class="bg-secondary text-white rounded d-flex align-items-center justify-content-center"
-         style="width:70px;height:70px">
-        No Image
-    </div>
-@endif
+                                @if($report->reportImage && $report->reportImage->isNotEmpty())
+                                    <img
+                                        src="{{ asset('storage/'.$report->reportImage->first()->path) }}"
+                                        width="70"
+                                        height="70"
+                                        class="rounded"
+                                        style="object-fit:cover"
+                                    >
+                                @else
+                                    <div class="bg-secondary text-white rounded d-flex align-items-center justify-content-center"
+                                         style="width:70px;height:70px">
+                                        No Image
+                                    </div>
+                                @endif
 
                                 {{-- INFO --}}
                                 <div>

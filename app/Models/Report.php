@@ -23,9 +23,15 @@ class Report extends Model
         'allow_contact',
     ];
 
- public function reportImage()
+    public function reportImage()
     {
         return $this->hasMany(reportImage::class,'report_id','id');
+    }
+
+    // Backward-compatible alias used by some views
+    public function petsImage()
+    {
+        return $this->reportImage();
     }
 
 
